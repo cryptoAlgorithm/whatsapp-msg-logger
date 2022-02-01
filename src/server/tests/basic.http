@@ -1,0 +1,8 @@
+### The most basic test: see if the server responds with a pong when pinged
+GET http://localhost:8080/ping
+
+> {%
+client.test('Basic ping', () => client.assert(+new Date - parseInt(response.body.toString()) < 1000))
+%}
+
+###

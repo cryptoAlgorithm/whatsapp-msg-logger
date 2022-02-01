@@ -1,0 +1,4 @@
+/node_modules/
+/.next/
+/auth_info*.json
+/media/*.*
