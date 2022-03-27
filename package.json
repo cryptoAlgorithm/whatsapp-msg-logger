@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node-dev --ignore-watch=.next/ src/app.ts",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "build": "tsc -p tsconfig.prod.json"
   },
   "dependencies": {
     "@adiwajshing/baileys": "^4.0.0",

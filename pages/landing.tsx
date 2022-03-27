@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-const Index = () => {
+const Landing = () => {
     return <>
         <Head>
             <title>Home</title>
@@ -17,4 +17,4 @@ const Index = () => {
     </>
 }
 
-export default Index
+export default Landing

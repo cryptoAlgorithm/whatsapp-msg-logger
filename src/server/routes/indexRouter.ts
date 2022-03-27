@@ -19,7 +19,7 @@ declare global {
     }
 }
 
-/*router.get('/', async (
+router.get('/', async (
     req,
     res,
 ) => {
@@ -28,6 +28,6 @@ declare global {
     const usr = await db.collection<UserDoc>('users').findOne({username: req.user.username});
     req.session.waUser = usr.waUser
     res.render('index', { user: req.user });
-});*/
+});
 
 export default router

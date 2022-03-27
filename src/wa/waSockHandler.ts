@@ -98,7 +98,15 @@ export default class WASockHandler {
         try {
             return await this.sock.groupMetadata(jid);
         } catch (e) {
-            console.log(e);
+            return null;
+        }
+    }
+
+    async getGroupAvatar(jid: string): Promise<string | null> {
+        try {
+            return await this.sock.profilePictureUrl(jid);
+        } catch (e) {
+            console.log(e)
             return null;
         }
     }

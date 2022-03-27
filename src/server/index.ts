@@ -55,7 +55,7 @@ export default class ApiServer {
         });
 
         app.use(express.static(join(__dirname, 'public')));
-        // app.use('/', indexRouter);
+        app.use('/', indexRouter);
         app.use('/', authRouter);
         app.use('/api/v0', apiRouter);
 

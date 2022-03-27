@@ -2,3 +2,4 @@
 /.next/
 /auth_info*.json
 /media/*.*
+/dist/

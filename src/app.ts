@@ -2,6 +2,10 @@ import { db, client } from './db';
 import { DB_NAME } from './db/config';
 import WASockHandler from './wa/waSockHandler'
 import ApiServer from './server';
+import { existsSync } from 'fs';
+import { join } from 'path';
+import { mkdir } from 'fs/promises';
+import exitHandler from './exitHandler';
 
 // Create a WASocket
 let sockHandler: WASockHandler = null;
@@ -18,16 +22,21 @@ async function connMongoDB() {
 
 async function main() {
     console.log('Initializing...');
+    // Create directories if they don't exist
+    if (!existsSync(join(__dirname, '..', 'media'))) {
+        await mkdir(join(__dirname, '..', 'media'));
+        console.log('Created media directory')
+    }
+    // Connect to MongoDB
     await connMongoDB();
     sockHandler = new WASockHandler();
     // Create new server instance
-    const apiServer = new ApiServer(client, DB_NAME);
+    new ApiServer(client, DB_NAME);
 }
 
 main().catch(console.dir);
 
 // Exit gracefully
-import exitHandler from './exitHandler';
 exitHandler(() => {
     console.log('Cleaning up...');
     client.close().then();

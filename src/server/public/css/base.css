@@ -3,7 +3,7 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0.1px;
   font-family:
       -apple-system,
       BlinkMacSystemFont,
@@ -57,4 +57,8 @@ a.button, button {
 }
 a.button:hover:not(:disabled), button:hover:not(:disabled) {
 
+}
+
+* {
+  box-sizing: border-box;
 }
